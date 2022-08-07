@@ -1,11 +1,10 @@
 import itertools
-from datetime import datetime
-
 import requests
+from datetime import datetime
+from django.conf import settings
 
 from neo_tracker.models import NearEarthObject
 
-API_KEY = ... # todo put api key here
 URL = 'https://api.nasa.gov/neo/rest/v1/feed'
 
 
@@ -22,7 +21,7 @@ def handle_status_code(status_code):
 def get_objects(start_date=datetime.now(), end_date=None):
     params = {'start_date': start_date,
               'end_date': end_date,
-              'api_key': API_KEY}
+              'api_key': settings.NASA_API_KEY}
 
     response = requests.get(URL, params=params)
     handle_status_code(status_code=response.status_code)
@@ -33,4 +32,3 @@ def get_objects(start_date=datetime.now(), end_date=None):
 
 def sort_by_miss_distance(near_earth_object):
     return near_earth_object.miss_distance()
-
