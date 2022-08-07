@@ -1,6 +1,9 @@
 import itertools
 import requests
 from datetime import datetime
+
+import pandas as pd
+
 from django.conf import settings
 
 from neo_tracker.models import NearEarthObject
@@ -32,3 +35,9 @@ def get_objects(start_date=datetime.now(), end_date=None):
 
 def sort_by_miss_distance(near_earth_object):
     return near_earth_object.miss_distance()
+
+
+def as_dataframe(start_date=datetime.now(), end_date=None):
+    neos = sorted(get_objects(start_date, end_date), key=sort_by_miss_distance)
+    df = pd.DataFrame(neos)
+    return df.to_html()

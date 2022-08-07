@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_tables2',
 
+    'bootstrap5',
+
     'neo_tracker.apps.NeoTrackerConfig',
 ]
 

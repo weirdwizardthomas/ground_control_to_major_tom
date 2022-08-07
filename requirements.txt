@@ -1,3 +1,6 @@
 requests
 python-dotenv
+pandas
 django
+django-bootstrap-v5
+django-tables2
