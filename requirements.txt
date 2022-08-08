@@ -4,3 +4,7 @@ pandas
 django
 django-bootstrap-v5
 django-tables2
+
+# HEROKU
+gunicorn
+django-heroku
