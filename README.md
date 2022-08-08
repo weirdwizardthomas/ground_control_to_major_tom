@@ -10,14 +10,6 @@ distance, in an aligned tabular format, the object name, size estimate, time and
 
 The data should come from the API of NeoWs service at https://api.nasa.gov/ (free registration required).
 
-## To-do
-
-* [ ] write the app
-* [ ] write a run guide
-    * [x] api key
-    * [ ] create a setup script, which also creates the `keychain.py` file
-    * [ ] installing
-* [ ] host the app
 
 ## Run
 
@@ -25,6 +17,11 @@ The data should come from the API of NeoWs service at https://api.nasa.gov/ (fre
 
 An API key is required.
 
-1. Follow the instructions at https://api.nasa.gov/ to obtain your API key
-2. create a file `ground_control\keychain.py`
-3. create a variable `API_KEY=$your api key$`
+1. Follow the instructions at https://api.nasa.gov/ to obtain your API key.
+2. create `.env'` in project's root.
+3. create a variable `API_KEY=$your api key$` in `.env`.
+
+### Heroku
+
+The app is hosted on [Heroku](https://dashboard.heroku.com/): https://ground-control-neows.herokuapp.com/app/. The deployed version is also a part of this repository, in a separate branch `heroku-deploy`, containing additional changes needed for Heroku deployment.
+
