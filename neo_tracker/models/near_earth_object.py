@@ -19,20 +19,20 @@ class NearEarthObject:
     links: dict
 
     def relative_velocity(self, units='kilometers_per_second'):
-        return self.pick_value_by_unit(self.relative_velocity_dictionary, units, 'relative velocity')
+        return float(self.pick_value_by_unit(self.relative_velocity_dictionary, units, 'relative velocity'))
 
     def estimated_diameter(self, units='kilometers'):
         return self.pick_value_by_unit(self.estimated_diameter_dictionary, units, 'diameter')
 
     def miss_distance(self, units='kilometers'):
-        return self.pick_value_by_unit(self.miss_distance_dictionary, units, 'miss distance')
+        return float(self.pick_value_by_unit(self.miss_distance_dictionary, units, 'miss distance'))
 
     @staticmethod
     def pick_value_by_unit(dictionary, units, attribute_name):
         if units not in dictionary.keys():
             raise ValueError(f'Invalid units for {attribute_name}. Possible values: {dictionary.keys()}')
 
-        return float(dictionary[units])
+        return dictionary[units]
 
     @staticmethod
     def from_dictionary(data_dictionary):
