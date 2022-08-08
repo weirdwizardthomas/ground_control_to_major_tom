@@ -1,4 +1,5 @@
 {% load render_table from django_tables2 %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +7,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
+    {% for message in messages %}
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="container text-center">
-        {% render_table table %}
+        {% if table %}
+            {% render_table table %}
+        {% endif %}
     </div>
 </body>
 </html>
