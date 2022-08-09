@@ -41,7 +41,7 @@ class NearEarthObject:
 
         return NearEarthObject(id=data_dictionary['id'],
                                neo_reference_id=data_dictionary['neo_reference_id'],
-                               name=data_dictionary['name'].strip('()'),
+                               name=data_dictionary['name'],
                                nasa_jpl_url=data_dictionary['nasa_jpl_url'],
                                absolute_magnitude_h=data_dictionary['absolute_magnitude_h'],
                                close_approach_date=datetime.strptime(close_approach_data['close_approach_date_full'],
