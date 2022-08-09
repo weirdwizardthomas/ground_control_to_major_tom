@@ -1,21 +1,12 @@
-import itertools
-import requests
 from datetime import datetime
 
-import pandas as pd
-
+import requests
 from django.conf import settings
-from django.contrib import messages
-from requests import HTTPError
 
 from neo_tracker.models import NearEarthObject
+from neo_tracker.util import flatten_list
 
 URL = 'https://api.nasa.gov/neo/rest/v1/feed'
-
-
-def flatten_list(data):
-    # https://stackoverflow.com/questions/952914/how-do-i-make-a-flat-list-out-of-a-list-of-lists
-    return list(itertools.chain.from_iterable(data))
 
 
 def get_objects(start_date=datetime.now(), end_date=None):
@@ -33,9 +24,3 @@ def get_objects(start_date=datetime.now(), end_date=None):
 
 def sort_by_miss_distance(near_earth_object):
     return near_earth_object.miss_distance()
-
-
-def as_dataframe(start_date=datetime.now(), end_date=None):
-    neos = sorted(get_objects(end_date), key=sort_by_miss_distance)
-    df = pd.DataFrame(neos)
-    return df.to_html()
