@@ -22,7 +22,11 @@ def index(request):
     try:
         near_earth_objects = near_earth_object_fetcher_service.get_objects(start_date=start_date, end_date=end_date)
     except HTTPError as error:
-        messages.error(request, error)
+        if error.response.status_code == 403:  # Authentication error
+            messages.error(request,
+                           'Error authenticating access to the API. Please review your API key. Status code: 403.')
+        else:
+            messages.error(request, error)
         return render(request, 'neo_tracker/index.html')
 
     table = NeoTable(near_earth_objects)
