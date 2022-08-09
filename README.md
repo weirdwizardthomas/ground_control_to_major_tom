@@ -49,7 +49,7 @@ After installing, run
 python manage.py runserver
 ```
 
-### Heroku
+## Heroku
 
 The app is hosted on [Heroku](https://dashboard.heroku.com/): https://ground-control-neows.herokuapp.com/app/. The
 deployed version is also a part of this repository, in a separate branch `heroku-deploy`, containing additional changes
