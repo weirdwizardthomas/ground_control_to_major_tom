@@ -10,6 +10,13 @@ URL = 'https://api.nasa.gov/neo/rest/v1/feed'
 
 
 def get_objects(start_date=datetime.now(), end_date=None):
+    '''
+    Fetches data about near Earth objects between two dates.
+    :param start_date: Start date of the interval to fetch.
+    :param end_date: End date of the interval to fetch.
+    :return: List of near Earth objects registered during the provided start_date-end_date interval.
+    :raises :class:`HTTPError`, if one occurred.
+    '''
     params = {'start_date': start_date,
               'end_date': end_date,
               'api_key': settings.NASA_API_KEY}
