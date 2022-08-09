@@ -1,25 +1,23 @@
+{% extends 'neo_tracker/base.html' %}
+
+
 {% load render_table from django_tables2 %}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <title>List of objects</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-</head>
-<body>
+{% block user_messages %}
     {% if messages %}
         {% for msg in messages %}
             <div class="alert alert-danger alert-dismissable">
                 <button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true">&times;</button>
-                {{msg.message}}
+                {{ msg.message }}
             </div>
         {% endfor %}
     {% endif %}
+{% endblock %}
 
+{% block content %}
     <div class="container text-center">
         {% if table %}
             {% render_table table %}
         {% endif %}
     </div>
-</body>
-</html>
+{% endblock %}
