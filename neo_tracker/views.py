@@ -5,7 +5,7 @@ from django_tables2 import RequestConfig
 from requests import HTTPError
 
 from neo_tracker.helpers.date_validator import *
-from neo_tracker.helpers.neo_table import NeoTable
+from neo_tracker.helpers.neo_table import NearEarthObjectTable
 from neo_tracker.services import near_earth_object_fetcher_service
 
 
@@ -29,7 +29,7 @@ def index(request):
             messages.error(request, error)
         return render(request, 'neo_tracker/index.html')
 
-    table = NeoTable(near_earth_objects)
+    table = NearEarthObjectTable(near_earth_objects)
     RequestConfig(request).configure(table)
     return render(request, 'neo_tracker/index.html', context={
         'table': table
