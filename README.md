@@ -49,9 +49,21 @@ After installing, run
 python manage.py runserver
 ```
 
+## Usage
+
+The one and only page has two optional parameters, `start_date` and `end_date`, which delimit the interval of fetched
+objects. If not provided, these parameters default to the defaults of the NASA API.
+
+These two parameters have the following format: `YYYY-mm-dd:HH-MM`.
+### Example 
+```
+https://$ROOT_URL$/app/?start_date=2022-08-08:12-00&end_date=2022-08-08:12-59
+```
+
 ## Heroku
 
 The app is hosted on [Heroku](https://dashboard.heroku.com/): https://ground-control-neows.herokuapp.com/app/. The
 deployed version is also a part of this repository, in a separate branch `heroku-deploy`, containing additional changes
 needed for Heroku deployment.
+
 
